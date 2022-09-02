@@ -22,3 +22,17 @@ div {
   text-align: center;
   vertical-align: middle;
 }
+
+.crocodile{
+  /* background-image:url("https://cdn-icons-png.flaticon.com/512/4193/4193243.png"); */
+  background-color: blue;
+}
+
+.horse{
+  /* background-image: url("https://cdn-icons-png.flaticon.com/512/4193/4193254.png"); */
+  background-color: red;
+}
+
+.blank{
+  background-color: purple;
+}
