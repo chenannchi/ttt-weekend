@@ -88,10 +88,10 @@ function render(){
   });
 
 
-  console.log(`render : winner is ${winner}`)
+  // console.log(`render : winner is ${winner}`)
 
   if(winner === null){
-    console.log(`render 2 : winner === ${winner}`)
+    // console.log(`render 2 : winner === ${winner}`)
     if (turn === 1){
       messageEl.textContent = "Player X, it's your turn!"
     }else{
@@ -121,7 +121,7 @@ function handleClick(evt){
   // d) If the `board` has a value at the `sqIdx`, immediately `return` because that square is already taken. Also, if `winner` is not `null`, immediately `return` because the game is over.
 
   if(board[sqIdx]){
-    console(`${board[sqIdx]} has a value`)
+    // console(`${board[sqIdx]} has a value`)
     return 
   }else if (winner!==null){
     return
@@ -129,15 +129,15 @@ function handleClick(evt){
 
   // e) Update the board array at the sqIdx with the current value of turn.
   board[sqIdx] = turn
-  console.log(`add ${turn} to board${sqIdx}`)
+  // console.log(`add ${turn} to board${sqIdx}`)
 
   // f) Change the turn by multiplying `turn` by `-1` (this flips a `1` to `-1`, and vice-versa).
   turn *= -1
-  console.log(`change turn to ${turn}`)
+  // console.log(`change turn to ${turn}`)
 
   // g) Set the winner variable if there's a winner by calling a new function: getWinner.
   winner = getWinner()
-  console.log(`winner is ${winner}`)
+  // console.log(`winner is ${winner}`)
 
   // h) All the state has been updated, so we need to render our updated state to the user by calling the `render` function that we wrote earlier.
   render()
@@ -150,10 +150,10 @@ function getWinner(){
   winningCombos.forEach(function(combo){
     let sum = board[combo[0]]+board[combo[1]]+board[combo[2]]
     if(Math.abs(sum) === 3){
-      console.log(`sum = ${sum}`)
+      // console.log(`sum = ${sum}`)
       winner = board[combo[0]]
       // console.log(`there is a winner`)
-      console.log(`winner is ${winner}`)
+      // console.log(`winner is ${winner}`)
     }
     // return winner
   })
@@ -164,7 +164,7 @@ function getWinner(){
 
   //  If there is no winner
   // c) check to see if there is a tie. Set the winner variable to 'T' if there are no more nulls in the board array by returning the string 'T'.
-  console.log(`winner is ${winner}`)
+  // console.log(`winner is ${winner}`)
   if(Math.abs(winner) !== 1){
     if (!board.includes(null)){
       // console.log(`winner is ${winner}`)
