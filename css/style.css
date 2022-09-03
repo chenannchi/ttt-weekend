@@ -7,12 +7,19 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  /* the properties added by me */
+  background-color: #FFF5E4;
+  display: flex;
+  position: relative;
+  align-items: center;
+  vertical-align:middle;
+  font-family: 'Pacifico', cursive;
 }
 
 section.board {
   display: grid;
-  grid-template-rows: repeat(3, 10vmin);
-  grid-template-columns: repeat(3, 10vmin);
+  grid-template-rows: repeat(3, 20vmin);
+  grid-template-columns: repeat(3, 20vmin);
   grid-gap: 0vmin;
 }
 
@@ -23,16 +30,36 @@ div {
   vertical-align: middle;
 }
 
-.crocodile{
-  /* background-image:url("https://cdn-icons-png.flaticon.com/512/4193/4193243.png"); */
-  background-color: blue;
+
+/* css added by me */
+h1{
+  color:#850E35;
+  margin-top: 50px;
 }
 
-.horse{
-  /* background-image: url("https://cdn-icons-png.flaticon.com/512/4193/4193254.png"); */
-  background-color: red;
+/* .pumpkin{
+  size: 1px;
+} */
+
+.playerX{
+  background-color: #850E35;
+}
+
+.playerO{
+  background-color: #EE6983;
 }
 
 .blank{
-  background-color: purple;
+  background-color: #FFC4C4;
+}
+
+#reset{
+  width:100px;
+  margin:20px;
+  font-size: 20px;
+  border-radius: 20px;
+  border-color: #850E35;
+  color:aliceblue;
+  background-color: #850E35;
+  font-family: 'Pacifico', cursive;
 }
