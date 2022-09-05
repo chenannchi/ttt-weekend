@@ -74,20 +74,19 @@ function init(){
 // Step 4 - The state of the game should be rendered to the user
 
 function render(){
-  // let pumpkin = document.createElement("img")
-  // pumpkin.setAttribute("src","https://cdn-icons-png.flaticon.com/512/685/685844.png")
-  // pumpkin.setAttribute("class","pumpkin")
-  // pumpkin.style.width = "50%"
-
   // console.log(board)
   board.forEach(function(element, idx){
     // console.log("squareEls",squareEls[idx])
     // console.log("element", element)
+    // let icon = document.createElement("img")
+    
     if(element === -1){
-      squareEls[idx].setAttribute("class","playerX")
+      squareEls[idx].setAttribute("class","playerO")
+      squareEls[idx].textContent = "O"
       // squareEls[idx].appendChild(pumpkin)
     }else if(element === 1){
-      squareEls[idx].setAttribute("class","playerO")
+      squareEls[idx].setAttribute("class","playerX")
+      squareEls[idx].textContent = "X"
     }else{
       squareEls[idx].setAttribute("class","blank")
     }
