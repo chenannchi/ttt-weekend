@@ -4,7 +4,6 @@ const winningCombos =
 ,[0,3,6], [1,4,7], [2,5,8]
 ,[0,4,8], [2,4,6]]
 
-const resetBtnEl = document.getElementById("reset")
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner
@@ -16,6 +15,9 @@ let squareEls = document.querySelectorAll(".square")
 let messageEl = document.getElementById("message")
 
 let boardEl = document.getElementById("game-board")
+
+const resetBtnEl = document.getElementById("reset")
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardEl.addEventListener("click",handleClick)
@@ -42,10 +44,10 @@ function render(){
   board.forEach(function(element, idx){
     if(element === -1){
       squareEls[idx].setAttribute("class","jack-o-lantern")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:10px;width:80px">'
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:15px;width:50px">'
     }else if(element === 1){
       squareEls[idx].setAttribute("class","ghost")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:10px;width:80px">'
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:15px;width:50px">'
     }else{
       squareEls[idx].setAttribute("class","blank")
     }
@@ -55,17 +57,25 @@ function render(){
     if (turn === 1){
       messageEl.textContent = "GHOST, it's your turn!"
     }else{
-      messageEl.textContent = "JACK-O-LATERN, it's your turn!"
+      messageEl.textContent = "Jack-O-Lantern, it's your turn!"
     }
   }else if (winner === "T"){
     messageEl.textContent = "It's a tie!"
   }else{
     if (winner === 1){
-      messageEl.textContent = "Player GHOST win!"
+      messageEl.textContent = "GHOST win!"
     }else{
-      messageEl.textContent = "Player JACK-O-LANTERN win!"
+      messageEl.textContent = "JACK-O-LANTERN win!!!!!!"
     }
   }
+
+  // if(winner === null){
+  //   messageEl.textContent = `${turn === 1?"GHOEST":"JACK-O-LANTERN"}, it's your turn!`
+  // }else if (winner === "T"){
+  //   messageEl.textContent = "It's a tie!"
+  // }else{
+  //   messageEl.textContent = `${winner === 1?"GHOST":"JACK-O-LANTERN"} win!!!!!!!!`
+  // }
 }
 
 function handleClick(evt){
@@ -77,6 +87,10 @@ function handleClick(evt){
     return
   }
 
+  // if(board[sqIdx] || winner){
+  //   return
+  // }
+
   board[sqIdx] = turn
   turn *= -1
   winner = getWinner()
@@ -84,6 +98,7 @@ function handleClick(evt){
 }
 
 function getWinner(){
+  // Don't use forEach because it cannot return value
   winningCombos.forEach(function(combo){
     let sum = board[combo[0]]+board[combo[1]]+board[combo[2]]
     if(Math.abs(sum) === 3){
@@ -98,5 +113,21 @@ function getWinner(){
       winner = null
     }
   }
+
   return winner
+
+  // Solutions by instructors
+  // for(let i = 0; i < winningCombos.length; i++){
+  //   let sum = board[winningCombos[i][0]] + board[winningCombos[i][1]]+board[winningCombos[i][2]]
+
+  //   if(Math.abs(sum) === 3){
+  //     return board[winningCombos[i][0]]
+  //   }
+  // }
+
+  // if(!board.includes(null)){
+  //   return "T"
+  // }else{
+  //   return null
+  // }
 }

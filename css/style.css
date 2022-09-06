@@ -18,14 +18,14 @@ body {
 
 section.board {
   display: grid;
-  grid-template-rows: repeat(3, 20vmin);
-  grid-template-columns: repeat(3, 20vmin);
+  grid-template-rows: repeat(3, 15vmin);
+  grid-template-columns: repeat(3, 15vmin);
   grid-gap: 0vmin;
 }
 
 div {
   border: 3px solid black;
-  font-size: 8vmin;
+  /* font-size: vmin; */
   text-align: center;
   vertical-align: middle;
   margin:2px;
@@ -38,11 +38,14 @@ h1{
   color:#850E35;
   margin-top: 35px;
   margin-bottom: 0;
+  border:5px #850E35;
+  border-style:dotted;
+  padding: 10px;
 }
 
-/* .pumpkin{
-  size: 1px;
-} */
+#message{
+  color:#712B75;
+}
 
 .ghost{
   background-color: #EE6983;
@@ -62,7 +65,7 @@ h1{
   font-size: 20px;
   border-radius: 20px;
   border-color: #850E35;
-  color:aliceblue;
-  background-color: #850E35;
+  color:#874356;
+  background-color: #F68989;
   font-family: 'Pacifico', cursive;
 }
