@@ -88,11 +88,13 @@ function render(){
     // console.log("element", element)
     if(element === -1){
       squareEls[idx].setAttribute("class","playerO")
-      squareEls[idx].textContent = "O"
+      // squareEls[idx].textContent = "O"
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="width:100px">'
       // squareEls[idx].appendChild(pumpkin)
     }else if(element === 1){
       squareEls[idx].setAttribute("class","playerX")
-      squareEls[idx].textContent = "X"
+      // squareEls[idx].textContent = "X"
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="width:100px">'
     }else{
       squareEls[idx].setAttribute("class","blank")
     }
@@ -104,9 +106,9 @@ function render(){
   if(winner === null){
     // console.log(`render 2 : winner === ${winner}`)
     if (turn === 1){
-      messageEl.textContent = "Player X, it's your turn!"
+      messageEl.textContent = "GHOST, it's your turn!"
     }else{
-      messageEl.textContent = "Player O, it's your turn!"
+      messageEl.textContent = " Jack-O-Lantern, it's your turn!"
     }
   }else if (winner === "T"){
     messageEl.textContent = "It's a tie!"
