@@ -42,10 +42,10 @@ function render(){
   board.forEach(function(element, idx){
     if(element === -1){
       squareEls[idx].setAttribute("class","jack-o-lantern")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:20px;width:100px">'
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:10px;width:80px">'
     }else if(element === 1){
       squareEls[idx].setAttribute("class","ghost")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:20px;width:100px">'
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:10px;width:80px">'
     }else{
       squareEls[idx].setAttribute("class","blank")
     }

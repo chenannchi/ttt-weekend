@@ -36,7 +36,8 @@ div {
 /* css added by me */
 h1{
   color:#850E35;
-  margin-top: 50px;
+  margin-top: 35px;
+  margin-bottom: 0;
 }
 
 /* .pumpkin{
@@ -44,11 +45,11 @@ h1{
 } */
 
 .ghost{
-  background-color: #850E35;
+  background-color: #EE6983;
 }
 
 .jack-o-lantern{
-  background-color: #EE6983;
+  background-color: #850E35;
 }
 
 .blank{
