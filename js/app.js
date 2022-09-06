@@ -26,6 +26,7 @@ resetBtnEl.addEventListener("click",init)
 init()
 
 function init(){
+  // resetBtnEl.setAttribute("hidden",true)
   board = new Array(9).fill(null)
   board.forEach(function(ele,idx){
     squareEls[idx].textContent = ""
@@ -37,14 +38,14 @@ function init(){
   render()
 }
 
-function render(){
+function render(){ 
   board.forEach(function(element, idx){
     if(element === -1){
-      squareEls[idx].setAttribute("class","playerO")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="width:100px">'
+      squareEls[idx].setAttribute("class","jack-o-lantern")
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:20px;width:100px">'
     }else if(element === 1){
-      squareEls[idx].setAttribute("class","playerX")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="width:100px">'
+      squareEls[idx].setAttribute("class","ghost")
+      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:20px;width:100px">'
     }else{
       squareEls[idx].setAttribute("class","blank")
     }
@@ -54,15 +55,15 @@ function render(){
     if (turn === 1){
       messageEl.textContent = "GHOST, it's your turn!"
     }else{
-      messageEl.textContent = "Jack-O-Lantern, it's your turn!"
+      messageEl.textContent = "JACK-O-LATERN, it's your turn!"
     }
   }else if (winner === "T"){
     messageEl.textContent = "It's a tie!"
   }else{
     if (winner === 1){
-      messageEl.textContent = "Player X win!"
+      messageEl.textContent = "Player GHOST win!"
     }else{
-      messageEl.textContent = "Player O win!"
+      messageEl.textContent = "Player JACK-O-LANTERN win!"
     }
   }
 }

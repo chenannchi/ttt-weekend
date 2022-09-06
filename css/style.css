@@ -28,6 +28,8 @@ div {
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+  margin:2px;
+  border-radius: 50%;
 }
 
 
@@ -41,11 +43,11 @@ h1{
   size: 1px;
 } */
 
-.playerX{
+.ghost{
   background-color: #850E35;
 }
 
-.playerO{
+.jack-o-lantern{
   background-color: #EE6983;
 }
 
