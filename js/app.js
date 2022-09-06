@@ -4,10 +4,12 @@ const winningCombos =
 ,[0,3,6], [1,4,7], [2,5,8]
 ,[0,4,8], [2,4,6]]
 
+const lantern = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:15px;width:80px">'
+
+const ghost = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:15px;width:80px">'
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner
-
 
 /*------------------------ Cached Element References ------------------------*/
 let squareEls = document.querySelectorAll(".square")
@@ -28,7 +30,6 @@ resetBtnEl.addEventListener("click",init)
 init()
 
 function init(){
-  // resetBtnEl.setAttribute("hidden",true)
   board = new Array(9).fill(null)
   board.forEach(function(ele,idx){
     squareEls[idx].textContent = ""
@@ -44,10 +45,10 @@ function render(){
   board.forEach(function(element, idx){
     if(element === -1){
       squareEls[idx].setAttribute("class","jack-o-lantern")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/jack-o-lantern_1f383.png" style="margin:15px;width:50px">'
+      squareEls[idx].innerHTML = lantern
     }else if(element === 1){
       squareEls[idx].setAttribute("class","ghost")
-      squareEls[idx].innerHTML = '<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/ghost_1f47b.png"  style="margin:15px;width:50px">'
+      squareEls[idx].innerHTML = ghost
     }else{
       squareEls[idx].setAttribute("class","blank")
     }
@@ -68,14 +69,6 @@ function render(){
       messageEl.textContent = "JACK-O-LANTERN win!!!!!!"
     }
   }
-
-  // if(winner === null){
-  //   messageEl.textContent = `${turn === 1?"GHOEST":"JACK-O-LANTERN"}, it's your turn!`
-  // }else if (winner === "T"){
-  //   messageEl.textContent = "It's a tie!"
-  // }else{
-  //   messageEl.textContent = `${winner === 1?"GHOST":"JACK-O-LANTERN"} win!!!!!!!!`
-  // }
 }
 
 function handleClick(evt){
@@ -87,10 +80,6 @@ function handleClick(evt){
     return
   }
 
-  // if(board[sqIdx] || winner){
-  //   return
-  // }
-
   board[sqIdx] = turn
   turn *= -1
   winner = getWinner()
@@ -98,7 +87,6 @@ function handleClick(evt){
 }
 
 function getWinner(){
-  // Don't use forEach because it cannot return value
   winningCombos.forEach(function(combo){
     let sum = board[combo[0]]+board[combo[1]]+board[combo[2]]
     if(Math.abs(sum) === 3){
@@ -113,21 +101,5 @@ function getWinner(){
       winner = null
     }
   }
-
   return winner
-
-  // Solutions by instructors
-  // for(let i = 0; i < winningCombos.length; i++){
-  //   let sum = board[winningCombos[i][0]] + board[winningCombos[i][1]]+board[winningCombos[i][2]]
-
-  //   if(Math.abs(sum) === 3){
-  //     return board[winningCombos[i][0]]
-  //   }
-  // }
-
-  // if(!board.includes(null)){
-  //   return "T"
-  // }else{
-  //   return null
-  // }
 }
