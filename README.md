@@ -1,3 +1,3 @@
-# tic-tac-toe starter code
+# tic-tac-toe
 
-images in the game refer to this website : https://emojipedia.org/search/?q=halloween
+Tic Tac Toe is the first game I built by myself.
